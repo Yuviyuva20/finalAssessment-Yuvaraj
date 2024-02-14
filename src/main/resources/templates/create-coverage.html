@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/policy/addCoverage" method="post">
+<p><strong>Select State:</strong>
+    <select id="State" name="states" >
+        <option th:each="state: ${states}"
+                th:value="${state.id}" th:text="${state.stateName}">
+    </select>
+</p>
+    <P>
+        Select Coverage:
+    </P>
+<div th:each="coverage:${coverages}" >
+    <input type="checkbox" name="coverages"
+           th:text="${coverage.coverageName}" th:value="${coverage.id}" >
+</div>
+<input type="Submit" th:value="Save">
+</form>
+</body>
+</html>

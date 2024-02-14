@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/policy/save}" action="" th:object="${policy}"  method="post">
+   NAME: <input type="text" th:field="*{holderName}" placeholder="name">
+
+
+      ADDRESS1  <input type="text" name ="address1" >
+   ADDRESS2 <input type="text" name ="address2" >
+
+
+<input type="Submit" th:value="Save">
+
+</form>
+</body>
+</html>

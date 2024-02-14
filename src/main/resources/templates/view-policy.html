@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/policy/add}">AddPolicy</a>
+<table border="2">
+
+    <thead>
+    <td>Policy No</td>
+    <td>PolicyHolderName</td>
+    <td>Address line1</td>
+    <td>Address line2</td>
+    <td>Status</td>
+    <td>States</td>
+    <td>Coverages</td>
+    <td>Premium Amount</td>
+    <td>Actions</td>
+    </thead>
+    <tbody>
+    <tr th:each="policys:${policy}">
+        <td th:text="${policys.policyId}" ></td>
+        <td th:text="${policys.holderName}" ></td>
+        <td th:text="${policys.address.addressLine1}" ></td>
+        <td th:text="${policys.address.addressLine2}" ></td>
+        <td th:text="${policys.status}" ></td>
+        <td th:text="${policys.state.stateName}"></td>
+
+        <td>
+            <ul th:each="coverage:${policys.coverageList}">
+                <li th:text="${coverage.coverageName}" ></li>
+            </ul>
+        </td>
+        <td th:text="${policys.rate}"></td>
+        <td ><a th:href="@{/policy/update(policyId=${policys.policyId})}" >Update</a> </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
